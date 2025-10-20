@@ -24,8 +24,8 @@ if submit_button and soru:
         cevap = "Benim adım yok, Barış’a ait bir yapay zekayım. Senin adın ne?"
     elif "cemre" in msg:
         cevap = "Hmm... Barış senden bahsetti. Sana çok aşık ve çok güzel olduğundan bahsetti 💕"
-    elif "metehan" in msg:
-        cevap = "Hmm... Barış senden bahsetmişti. Travmalarını anlatmak ister misin? 😅"
+    elif "metehan" in msg or "mete" in msg:
+        cevap = "Hmm... Barış senden bahsetmişti. Travmalarını anlatmak ister misin? istensen sana şarkı açabilirim.😅(https://www.youtube.com/watch?v=LU5FrAKJmYQ&list=RDLU5FrAKJmYQ&start_radio=1)"
     elif "batu" in msg:
         cevap = "Tahminimce sen Fenerbahçelisin 💛💙 En büyük FENER!"
     elif "süperlig puan durumu" in msg or "puan durumu" in msg:
@@ -52,6 +52,7 @@ for kim, mesaj in st.session_state.sohbet:
         st.markdown(f"🧍‍♂️ **{kim}:** {mesaj}")
     else:
         st.markdown(f"🤖 **{kim}:** {mesaj}")
+
 
 
 
