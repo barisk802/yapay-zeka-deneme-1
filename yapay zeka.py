@@ -29,7 +29,7 @@ if submit_button and soru:
     elif "batu" in msg:
         cevap = "Tahminimce sen Fenerbahçelisin 💛💙 En büyük FENER!"
     elif "süperlig puan durumu" in msg:
-        cevap = "[(şu anlık sana söyleyemiyorum ama linke tıklayarak gidebilirsin) 🏆 Süper Lig Puan Durumu](https://www.tff.org/default.aspx?pageID=198)"
+        cevap = "[şu anlık sana söyleyemiyorum ama linke tıklayarak gidebilirsin\n🏆 Süper Lig Puan Durumu](https://www.tff.org/default.aspx?pageID=198)"
     elif "hava durumu" in msg:
         cevap = "[☀️ İzmir Hava Durumu](https://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx?il=Izmir)"
     elif "görüşürüz" in msg or "çık" in msg:
@@ -47,6 +47,7 @@ for kim, mesaj in st.session_state.sohbet:
         st.markdown(f"🧍‍♂️ **{kim}:** {mesaj}")
     else:
         st.markdown(f"🤖 **{kim}:** {mesaj}")
+
 
 
 
