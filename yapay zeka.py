@@ -25,13 +25,13 @@ if submit_button and soru:
     elif "cemre" in msg:
         cevap = "Hmm... Barış senden bahsetti. Sana çok aşık ve çok güzel olduğundan bahsetti 💕"
     elif "metehan" in msg or "mete" in msg:
-        cevap = "Hmm... Barış senden bahsetmişti. Travmalarını anlatmak ister misin? istensen sana şarkı açabilirim.😅(https://www.youtube.com/watch?v=LU5FrAKJmYQ&list=RDLU5FrAKJmYQ&start_radio=1)"
+        cevap = "Hmm... Barış senden bahsetmişti. Travmalarını anlatmak ister misin? istensen sana şarkı önerebilirim linke tıklayarak gidebilirsin.😅(https://www.youtube.com/watch?v=LU5FrAKJmYQ&list=RDLU5FrAKJmYQ&start_radio=1)"
     elif "batu" in msg:
         cevap = "Tahminimce sen Fenerbahçelisin 💛💙 En büyük FENER!"
     elif "süperlig puan durumu" in msg or "puan durumu" in msg:
         cevap = "[şu anlık sana söyleyemiyorum ama mesaja tıklayarak gidebilirsin 🏆 Süper Lig Puan Durumu](https://www.tff.org/default.aspx?pageID=198)"
     elif "hava durumu" in msg:
-        cevap = "[şu anlık sana söyleyemiyorum ama mesaja tıklayarak gidebilirsin ☀️ İzmir Hava Durumu](https://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx?il=Izmir)"
+        cevap = "[şu anlık sana söyleyemiyorum ama mesaja tıklayarak gidebilirsin(maalesef sadece İzmir) ☀️ İzmir Hava Durumu](https://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx?il=Izmir)"
     elif "canım sıkılıyo" in msg or "canım sıkılıyor" in msg:
         cevap = "İstersen sahibim tarafından yapılan oyunlara seni yönlendirebilirim.. 🎮"
         # Web sitelerini aç (kullanıcı tıkladığında tarayıcıda açılır)
@@ -52,6 +52,7 @@ for kim, mesaj in st.session_state.sohbet:
         st.markdown(f"🧍‍♂️ **{kim}:** {mesaj}")
     else:
         st.markdown(f"🤖 **{kim}:** {mesaj}")
+
 
 
 
