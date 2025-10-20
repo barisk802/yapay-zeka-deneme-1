@@ -1,33 +1,34 @@
+import streamlit as st
 import webbrowser
 
-print("""
-Ne yapaay zeka :D
-""")
+st.title("🤖 Ne yapaay zeka :D")
 
-while True:
-    soru = input("Sen :").lower()
+# Kullanıcı girişi alanı
+soru = st.text_input("Sen :").lower()
 
-    if "Merhaba" or "selam" or "naber" in soru:
-        print("Bot : Selam nasılsın")
+if soru:
+    if "merhaba" in soru or "selam" in soru or "naber" in soru:
+        st.write("**Bot :** Selam nasılsın")
     elif "nasılsın" in soru:
-        print("Bot : Ben bir yapay zekayım duygularım yok sen nasılsın")
+        st.write("**Bot :** Ben bir yapay zekayım, duygularım yok. Sen nasılsın?")
     elif "adın ne" in soru:
-        print("Bot : Benim adım yok, ben Barış'a ait bir yapay zekayım senin adın ne")
-    elif "Cemre" in soru:
-        print("Bot : hmm Barış senden bahsetti sana çok aşık ve çok güzel olduğundan bahsetti")
-    elif "Metehan" in soru:
-        print("Bot : hmm.. barış senden bahsetmişti travmalarını anlatmak ister misin? İstersen sana şarkı açabilirim")
-        webbrowser.open("https://www.youtube.com/watch?v=LU5FrAKJmYQ&list=RDLU5FrAKJmYQ&start_radio=1")
-    elif "Batu" in soru :
-        print("Bot : hmm.. Tahminimce sen Fenerbahçelisin en büyük FENER💛💙")
-    elif "Süperlig puan durumu" in soru:
-        print("Bot : Linke tıklayarak gidebilirsin..")
-        webbrowser.open("https://www.tff.org/default.aspx?pageID=198")
+        st.write("**Bot :** Benim adım yok, ben Barış’a ait bir yapay zekayım. Senin adın ne?")
+    elif "cemre" in soru:
+        st.write("**Bot :** Hmm... Barış senden bahsetti. Sana çok aşık ve çok güzel olduğundan bahsetti 💕")
+    elif "metehan" in soru:
+        st.write("**Bot :** Hmm... Barış senden bahsetmişti, travmalarını anlatmak ister misin? İstersen sana şarkı açabilirim 🎵")
+        st.link_button("🎶 Şarkıyı Aç", "https://www.youtube.com/watch?v=LU5FrAKJmYQ&list=RDLU5FrAKJmYQ&start_radio=1")
+    elif "batu" in soru:
+        st.write("**Bot :** Hmm... Tahminimce sen Fenerbahçelisin 💛💙 En büyük FENER!")
+    elif "ayberk" in soru:
+        st.write("**Bot :** Selam Ayberk tanıştığıma memnun oldum götoş")
+    elif "süperlig puan durumu" in soru:
+        st.write("**Bot :** Linke tıklayarak gidebilirsin ⚽️")
+        st.link_button("🏆 Süper Lig Puan Durumu", "https://www.tff.org/default.aspx?pageID=198")
     elif "hava durumu" in soru:
-        print("Bot : Linke tıklayarak gidebilirsin..(ama sadece İzmir için yönlendirebiliyorum şimdilik :))")
-        webbrowser.open("https://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx?il=Izmir")
+        st.write("**Bot :** Linke tıklayarak gidebilirsin 🌦️ (şimdilik sadece İzmir için 😅)")
+        st.link_button("☀️ İzmir Hava Durumu", "https://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx?il=Izmir")
     elif "görüşürüz" in soru or "çık" in soru:
-        print("Bot: Görüşürüz! Kendine iyi bak 👋")
-        break
+        st.write("**Bot :** Görüşürüz! Kendine iyi bak 👋")
     else:
-        print("Bot : üzgünüm seni anlayamadım henüz bunları yapamıyorum lütfen daha sonra dene gelişim aşamasındayım.")
+        st.write("**Bot :** Üzgünüm, seni anlayamadım. Henüz bunları yapamıyorum. Gelişim aşamasındayım 😅")
