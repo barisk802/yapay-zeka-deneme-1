@@ -2,11 +2,9 @@ import streamlit as st
 
 st.title("💬 Ne yapaaiiy zeka :D")
 
-# Sohbet geçmişi ve rerun state
+# Sohbet geçmişi
 if "sohbet" not in st.session_state:
     st.session_state.sohbet = []
-if "rerun_needed" not in st.session_state:
-    st.session_state.rerun_needed = False
 
 # Form ile mesaj al
 with st.form(key="sohbet_form", clear_on_submit=True):
@@ -39,16 +37,9 @@ if submit_button and soru:
     else:
         cevap = "Üzgünüm, seni anlayamadım. Henüz bunları yapamıyorum 😅"
 
+    # Sohbete hem kullanıcı hem bot mesajını ekle
     st.session_state.sohbet.append(("Sen", soru))
     st.session_state.sohbet.append(("Bot", cevap))
-
-    # Rerun flag'i set et
-    st.session_state.rerun_needed = True
-
-# Form dışında güvenli şekilde rerun
-if st.session_state.rerun_needed:
-    st.session_state.rerun_needed = False
-    st.experimental_rerun()
 
 # Sohbet geçmişini göster
 for kim, mesaj in st.session_state.sohbet:
@@ -56,5 +47,7 @@ for kim, mesaj in st.session_state.sohbet:
         st.markdown(f"🧍‍♂️ **{kim}:** {mesaj}")
     else:
         st.markdown(f"🤖 **{kim}:** {mesaj}")
+
+
 
 
