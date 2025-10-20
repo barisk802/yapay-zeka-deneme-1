@@ -2,52 +2,52 @@ import streamlit as st
 
 st.title("💬 Ne yapaaiiy zeka :D")
 
-# Sohbet geçmişini tut
+# Sohbet geçmişi ve rerun state
 if "sohbet" not in st.session_state:
     st.session_state.sohbet = []
+if "rerun_needed" not in st.session_state:
+    st.session_state.rerun_needed = False
 
-if "rerun" not in st.session_state:
-    st.session_state.rerun = False
-
-# Form ile kullanıcı input'u
+# Form ile mesaj al
 with st.form(key="sohbet_form", clear_on_submit=True):
     soru = st.text_input("Sen :")
     submit_button = st.form_submit_button("Gönder")
 
+# Mesaj gönderildiğinde session state'e ekle
 if submit_button and soru:
     cevap = ""
+    msg = soru.lower()
 
-    if "merhaba" in soru.lower() or "selam" in soru.lower() or "naber" in soru.lower():
+    if "merhaba" in msg or "selam" in msg or "naber" in msg:
         cevap = "Selam nasılsın?"
-    elif "nasılsın" in soru.lower():
+    elif "nasılsın" in msg:
         cevap = "Ben bir yapay zekayım, duygularım yok. Sen nasılsın?"
-    elif "adın ne" in soru.lower():
+    elif "adın ne" in msg:
         cevap = "Benim adım yok, Barış’a ait bir yapay zekayım. Senin adın ne?"
-    elif "cemre" in soru.lower():
+    elif "cemre" in msg:
         cevap = "Hmm... Barış senden bahsetti. Sana çok aşık ve çok güzel olduğundan bahsetti 💕"
-    elif "metehan" in soru.lower():
+    elif "metehan" in msg:
         cevap = "Hmm... Barış senden bahsetmişti. Travmalarını anlatmak ister misin? 😅"
-    elif "batu" in soru.lower():
+    elif "batu" in msg:
         cevap = "Tahminimce sen Fenerbahçelisin 💛💙 En büyük FENER!"
-    elif "süperlig puan durumu" in soru.lower():
+    elif "süperlig puan durumu" in msg:
         cevap = "[🏆 Süper Lig Puan Durumu](https://www.tff.org/default.aspx?pageID=198)"
-    elif "hava durumu" in soru.lower():
+    elif "hava durumu" in msg:
         cevap = "[☀️ İzmir Hava Durumu](https://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx?il=Izmir)"
-    elif "görüşürüz" in soru.lower() or "çık" in soru.lower():
+    elif "görüşürüz" in msg or "çık" in msg:
         cevap = "Görüşürüz! Kendine iyi bak 👋"
     else:
         cevap = "Üzgünüm, seni anlayamadım. Henüz bunları yapamıyorum 😅"
 
-    # Sohbete hem kullanıcı hem bot mesajını ekle
     st.session_state.sohbet.append(("Sen", soru))
     st.session_state.sohbet.append(("Bot", cevap))
 
-    # Sayfayı yeniden yükle
-    st.session_state.rerun = True
+    # Rerun flag'i set et
+    st.session_state.rerun_needed = True
 
-# Eğer rerun True ise sayfayı yenile
-if st.session_state.rerun:
-    st.session_state.rerun = False
+# Form dışında güvenli şekilde rerun
+if st.session_state.rerun_needed:
+    st.session_state.rerun_needed = False
     st.experimental_rerun()
 
 # Sohbet geçmişini göster
@@ -56,4 +56,5 @@ for kim, mesaj in st.session_state.sohbet:
         st.markdown(f"🧍‍♂️ **{kim}:** {mesaj}")
     else:
         st.markdown(f"🤖 **{kim}:** {mesaj}")
+
 
