@@ -1,16 +1,20 @@
 import streamlit as st
 
-st.title("💬 Ne yapaay zeka :D")
+st.title("💬 Ne yapaaiiy zeka :D")
 
 # Sohbet geçmişini tut
 if "sohbet" not in st.session_state:
     st.session_state.sohbet = []
 
-# Kullanıcıdan mesaj al
-soru = st.text_input("Sen :")
+if "rerun" not in st.session_state:
+    st.session_state.rerun = False
 
-# Eğer kullanıcı mesaj yazdıysa
-if soru:
+# Form ile kullanıcı input'u
+with st.form(key="sohbet_form", clear_on_submit=True):
+    soru = st.text_input("Sen :")
+    submit_button = st.form_submit_button("Gönder")
+
+if submit_button and soru:
     cevap = ""
 
     if "merhaba" in soru.lower() or "selam" in soru.lower() or "naber" in soru.lower():
@@ -38,7 +42,12 @@ if soru:
     st.session_state.sohbet.append(("Sen", soru))
     st.session_state.sohbet.append(("Bot", cevap))
 
-    # Input’u temizlemek için sayfayı yenile
+    # Sayfayı yeniden yükle
+    st.session_state.rerun = True
+
+# Eğer rerun True ise sayfayı yenile
+if st.session_state.rerun:
+    st.session_state.rerun = False
     st.experimental_rerun()
 
 # Sohbet geçmişini göster
