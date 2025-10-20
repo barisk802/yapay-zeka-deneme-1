@@ -33,7 +33,7 @@ if submit_button and soru:
     elif "hava durumu" in msg:
         cevap = "[şu anlık sana söyleyemiyorum ama mesaja tıklayarak gidebilirsin ☀️ İzmir Hava Durumu](https://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx?il=Izmir)"
     elif "görüşürüz" in msg or "çık" in msg:
-        cevap = "Görüşürüz! Kendine iyi bak 👋"
+        cevap = "Görüşürüz! Allaha emanet göte mukayyet ol, Kendine iyi bak 👋"
     else:
         cevap = "Üzgünüm, seni anlayamadım. Henüz bunları yapamıyorum 😅"
 
@@ -47,6 +47,7 @@ for kim, mesaj in st.session_state.sohbet:
         st.markdown(f"🧍‍♂️ **{kim}:** {mesaj}")
     else:
         st.markdown(f"🤖 **{kim}:** {mesaj}")
+
 
 
 
