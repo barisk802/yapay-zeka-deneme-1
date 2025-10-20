@@ -18,7 +18,7 @@ if submit_button and soru:
 
     if "merhaba" in msg or "selam" in msg or "naber" in msg:
         cevap = "Selam nasılsın?"
-    elif "iyiyim sen nasılsın" in msg:
+    elif "iyiyim sen nasılsın" in msg or "iyiyim sen" in msg or "iyidir senden" in msg :
         cevap = "Ben bir yapay zekayım, duygularım yok. Sen nasılsın?"
     elif "adın ne" in msg:
         cevap = "Benim adım yok, Barış’a ait bir yapay zekayım. Senin adın ne?"
@@ -47,6 +47,7 @@ for kim, mesaj in st.session_state.sohbet:
         st.markdown(f"🧍‍♂️ **{kim}:** {mesaj}")
     else:
         st.markdown(f"🤖 **{kim}:** {mesaj}")
+
 
 
 
