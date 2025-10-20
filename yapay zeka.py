@@ -1,7 +1,7 @@
 import streamlit as st
 import webbrowser
 
-st.title("🤖 Ne yapaay zeka :D")
+st.title("🤖 Ne yapaaiiy zeka :D")
 
 # Kullanıcı girişi alanı
 soru = st.text_input("Sen :").lower()
@@ -32,3 +32,4 @@ if soru:
         st.write("**Bot :** Görüşürüz! Kendine iyi bak 👋")
     else:
         st.write("**Bot :** Üzgünüm, seni anlayamadım. Henüz bunları yapamıyorum. Gelişim aşamasındayım 😅")
+
